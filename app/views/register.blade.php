@@ -35,7 +35,7 @@
                 font-family: "Open Sans",Tahoma,Ubuntu,Helvetica;
                 font-weight: 300;
                 margin: 3px auto 10px;
-                padding: 50px 10px;
+                padding: 15px 10px;
                 line-height: 2;
             }
             .form-horizontal .control-label{
@@ -62,9 +62,11 @@
 
             @if(Session::has('message'))
                 @if($errors->has())
-                    <div class="col-xs-12">
+                    {{--<div class="col-xs-12 col-md-12">--}}
                         <div class="alert alert-danger alert-dismissible  fade in" role="alert">
+
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                {{--<span aria-hidden="true">×</span>--}}
                                 <span aria-hidden="true">&times;</span>
                                 {{--<span class="sr-only">Close</span>--}}
                             </button>
@@ -77,18 +79,6 @@
                                 @endforeach
                             </ul>
                         </div>
-                    </div>
-                {{--@else--}}
-                    {{--<div class="col-xs-12">--}}
-                        {{--<p class="alert alert-success">--}}
-                            {{--<button type="button" class="close" data-dismiss="alert">--}}
-                                {{--<span aria-hidden="true">&times;</span>--}}
-                                {{--<span class="sr-only">Close</span>--}}
-                            {{--</button>--}}
-
-                            {{--<span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>--}}
-                            {{--{{ Session::get('message') }}--}}
-                        {{--</p>--}}
                     {{--</div>--}}
                 @endif
             @endif
