@@ -63,10 +63,10 @@
             @if(Session::has('message'))
                 @if($errors->has())
                     <div class="col-xs-12">
-                        <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert">
+                        <div class="alert alert-danger alert-dismissible  fade in" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                                <span class="sr-only">Close</span>
+                                {{--<span class="sr-only">Close</span>--}}
                             </button>
 
                             <span class="glyphicon glyphicon-exclamation-sign" style="padding-right:5px;"></span>
