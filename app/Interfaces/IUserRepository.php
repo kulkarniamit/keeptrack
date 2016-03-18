@@ -17,6 +17,7 @@ interface IUserRepository {
     public function saveUser();
     public function saveJobApplication();
 
+    public function sendWelcomeMail($newuser);
     public function validateUserCredentials();
 }
 ?>

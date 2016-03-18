@@ -35,7 +35,7 @@
             color: #FFF;
             text-shadow:0 1px 3px rgba(0,0,0,.5);
             font-size: 12px;
-            background-color: #339933;
+            background-color: #5cb85c;
         }
         .btn-default{border-radius: 0px;}
         h3{

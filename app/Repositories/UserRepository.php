@@ -88,5 +88,33 @@ class UserRepository implements \Interfaces\IUserRepository {
         }
         return $newjob;
     }
+
+    public function sendWelcomeMail($newuser)
+    {
+        // You can also try using your gmail account or hotmail credentials
+        /*
+         * Compose your mail here and send it
+         */
+        $to = $newuser->email;
+        $subject = "KeepTrack Welcomes You";
+
+        /*
+         * Using Laravel mail() API calls and using SMTP of Mailgun service
+         */
+        $data=  [
+            'first_name'    =>  $newuser->first_name,
+            'last_name'     =>  $newuser->last_name,
+        ];
+
+
+        \Mail::later(5,'emails.welcome', $data, function($message) use ($subject,$to,$data)
+        {
+            $message->to($to)
+                ->subject($subject);
+//            \Log::info(\View::make('emails.welcome',$data)->render());
+        });
+
+
+    }
 }
 ?>

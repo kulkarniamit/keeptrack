@@ -62,20 +62,6 @@
         </div>
 
         <div class="reg-form col-xs-12">
-            @if (Session::has('addition_success_message'))
-                <div class="col-xs-12">
-                    <p class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
-                        </button>
-
-                        <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
-                        {{ Session::get('addition_success_message') }}
-                    </p>
-                </div>
-            @endif
-
             @if(Session::has('message'))
                 @if($errors->has())
                     <div class="col-xs-12">

@@ -69,7 +69,7 @@ class UserController extends BaseController
         if ($validator->passes()) {
             // validation has passed, save user in DB
             $newuser = $this->user->saveUser();
-//            $this->user->sendInviteMail($newuser);
+            $this->user->sendWelcomeMail($newuser);
             return Redirect::to('login')->with('registration_success_message', 'Registration Successful, please Login');
         }
         else{
@@ -98,7 +98,7 @@ class UserController extends BaseController
         if ($validator->passes()) {
             // validation has passed, save the job in DB
             $newjob = $this->user->saveJobApplication();
-            return Redirect::to('addapplication')->with('addition_success_message', 'Job added Successfully');
+            return Redirect::to('dashboard')->with('addition_success_message', 'Job added Successfully');
         }
         else{
             // validation has failed, display error messages

@@ -65,6 +65,20 @@
         </div>
 
         <div class="dashboard-container col-xs-12">
+            @if (Session::has('addition_success_message'))
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+
+                        <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
+                        {{ Session::get('addition_success_message') }}
+                    </p>
+                </div>
+            @endif
+
             <div class="metrodisplay col-xs-12 col-md-3">
                 <div class="col-xs-12 col-md-12 clearfix" style="float: none; margin: 1px auto;">
                     <div class="col-xs-12 col-md-6 patakha">
@@ -103,7 +117,8 @@
                                 <td>{{$allApplications[$i]->company}}</td>
                                 <td>
                                     @if ($allApplications[$i]->joblink != '')
-                                    {{$allApplications[$i]->joblink}}
+                                        <a href="{{$allApplications[$i]->joblink}}" title="Link to Job Description">Link</a>
+                                        {{--{{$allApplications[$i]->joblink}}--}}
                                     @else
                                         No link found
                                     @endif
