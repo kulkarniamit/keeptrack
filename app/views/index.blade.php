@@ -73,8 +73,6 @@
                                 <a href="login">
                                     <button aria-label="Left Align" class="btn btn-default btn-sm" type="button">Login</button>
                                 </a>
-
-                                {{--<a href="login">Login</a></li>--}}
                         </ul>
                     </nav>
                 </div>
@@ -82,9 +80,10 @@
 
             <div class="inner cover">
                 {{--<h1 class="cover-heading">Track your job applications</h1>--}}
-                <h1 class="cover-heading">Track <span style="color: #B30000;" class="glyphicon glyphicon-ok"></span></h1>
+                <h1 class="cover-heading">Track</h1>
 
                 <p class="lead">Maintain a list of your applied jobs, change status, track dates, tag friends for jobs and more...</p>
+                <p class="lead">A Simple and Clean Interface awaits you</p>
                 <p class="lead">
                     <a href="register" class="btn btn-lg btn-default">Register</a>
                 </p>
@@ -115,13 +114,13 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 {{ HTML::script('assets/js/ie10-viewport-bug-workaround.js') }}
 <script>
-    var texts = ['Track','Save','Manage','Share'];
+    var texts = ['Track','Save','Manage','Share','Tag','Jobs'];
     var i = 0;
     (function cycle() {
         $('h1').html(texts[i]);
-        $("h1").fadeIn(400)
-                .delay(1500)
-                .fadeOut(400, cycle);
+        $("h1").fadeIn(700)
+                .delay(1200)
+                .fadeOut(700, cycle);
         i = ++i % texts.length;
     })();
 </script>

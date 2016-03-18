@@ -66,6 +66,25 @@
                 <a class="navbar-brand" href="/">KeepTrack <span class="glyphicon glyphicon-ok-sign" style="color: #339933;"></span> </a>
 
             </div>
+
+            @if (Request::is('register'))
+                <div class="navbar-collapse collapse" id="navbar">
+                    <div class="navbar-form navbar-right">
+                        <a class="btn btn-success" href="{{URL::to('login')}}">
+                            Login
+                        </a>
+                    </div>
+                </div><!--/.nav-collapse -->
+            @elseif(Request::is('login'))
+                <div class="navbar-collapse collapse" id="navbar">
+                    <div class="navbar-form navbar-right">
+                        <a class="btn btn-success" href="{{URL::to('register')}}">
+                            Register
+                        </a>
+                    </div>
+                </div><!--/.nav-collapse -->
+            @endif
+
             @if (Auth::check())
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
