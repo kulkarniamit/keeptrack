@@ -88,3 +88,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('isUserLoggedIn', function() {
+	if(!Auth::check()){
+		return Redirect::to('login');
+	}
+});
+
+Route::filter('ifUserLoggedIn', function() {
+	if(Auth::check()){
+		return Redirect::to('dashboard');
+	}
+});

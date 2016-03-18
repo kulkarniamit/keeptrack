@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    @if(!isset($_GET['_leap_noscript']))
+	<?php
+	    echo '<noscript><meta http-equiv="refresh" content="0; URL=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'?_leap_noscript=1" /></noscript>';
+	?>
+    @else
+	<?php
+	    $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+	    // Discarding the GET parameters.
+	    $base = 'http://' . $_SERVER['HTTP_HOST'] . $uri_parts[0];
+	    ?>
+	    {{ '<script>window.location.href = "'.$base.'";</script>' }}
+    @endif      
+    
+    @section('meta')  
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {{-- Extend your custom meta here --}}
+    @show
+    
+    <title>
+	    @yield('title')
+    </title>
+    
+    @section('stylesheets')
+        {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')}} 
+        {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300')}}
+	{{ HTML::style('assets/css/base.css')}}
+    @show
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]
+    -->
+    
+    {{-- Browser Detection Script --}}
+    @include('includes.browserDetection')
+
+  </head>
+ 
+  <body>
+    
+                                                {{-- Content that has to go to every page --}}
+	{{-- JS Detection script --}}
+	<noscript>
+	    <div style="text-align: center; min-width: 960px;z-index:1;width:100%; height: 40px; background-color:#F7F979;font-size: 13px; font-weight:bold; padding-top: 10px; padding-bottom: 0px;">
+		Javascript is disabled on your browser,please enable Javascript and <a href="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>">reload the page.</a>
+	    </div>
+	</noscript>
+	@include('includes.ie6warning')
+	
+        <!-- Static navbar -->
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                
+                <a class="navbar-brand clearfix" href="{{ URL::to('/') }}">
+                    <div style="float:left;">
+                        {{ HTML::image('assets/images/leaplogo1.png', 'Logo',array('width' => '30px','height' => '35px')) }}
+                    </div>
+                    <div class="leap-name-large hidden-xs">
+                        LEAP CONSTRUCTIONS
+                    </div>
+                    <div class="leap-name-xs visible-xs">
+                        LEAP CONSTRUCTIONS
+                    </div>
+                </a>
+<!--              <a class="navbar-brand hidden-phone" href="#">
+                  {{ HTML::image('assets/images/leaplogo.png', 'a picture',array('width' => '35px','height' => '35px')) }}
+                  LEAP CONSTRUCTIONS
+              </a>-->
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#">Home</a></li>-->
+                <li><a href="{{ URL::to('/') }}">Home</a></li>
+                <li><a href="{{ URL::to('/about') }}">About Us</a></li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ URL::to('/qa-qc-services') }}">QA/QC</a></li>
+                    <li><a href="{{ URL::to('/design-services') }}">Design</a></li>
+                    <li><a href="{{ URL::to('/consulting-services') }}">Consulting</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Completed Projects</a></li>
+                    <li><a href="#">Oncgoing Projects</a></li>
+                    <li><a href="#">Construction Technology</a></li>
+                    <!--<li class="divider"></li>-->
+                    <!--<li class="dropdown-header">Nav header</li>-->
+                    <!--<li><a href="#">Separated link</a></li>-->
+                    <!--<li><a href="#">One more separated link</a></li>-->
+                  </ul>
+                </li>
+                <li><a href="#contact">Testimonials</a></li>
+                <li><a href="{{ URL::to('/contact') }}">Contact Us</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+						{{-- End of Content that has to go to every page --}}
+
+	<div class="container">
+	    @yield('content')
+            
+            <!-- FOOTER -->
+              <footer>
+                <!--<p class="pull-right"><a href="#">Back to top</a></p>-->
+                <!--<p>-->
+                  <div>
+                    <div class="col-xs-12 col-md-12 " style="margin: 10px auto; border-top: 1px solid #EEE; padding: 5px auto;">
+                        <a href="{{ URL::to('/privacy') }}">Privacy</a> &middot;
+                         <a href="{{ URL::to('/terms') }}">Terms</a> &middot;
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        &copy; 2014 Leap Constructions &middot;
+                    </div>
+
+        <!--            <div class="col-xs-12 col-md-4 well well-sm">
+                        <a href="#">Terms</a>
+                    </div>-->
+
+                </div>
+                <!--</p>-->
+              </footer>
+            
+	</div>
+    @section('js')
+	{{-- jQuery has to be included because our common.js uses jQuery functions to accomplish some tasks --}}
+	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')}}
+    @show
+  </body>
+</html>

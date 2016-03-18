@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('before'=>'ifUserLoggedIn',function()
 {
-	return View::make('hello');
-});
+//	return View::make('hello');
+	return View::make('index');
+}));
 
-Route::get('app', function()
-{
-	return 'Muchgond irappa';
-});
+Route::get('register',	array('uses'=>'UserController@showRegistrationPage'));
+Route::post('register',	array('before'=>'csrf','uses'=>'UserController@registerUser'));
+Route::get('login',		array('before'=>'ifUserLoggedIn','uses'=>'UserController@showLogin'));
+Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUserCredentials'));
+Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
+Route::get('logout',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showLogout'));
+
+Route::get('addapplication',array('before'=>'isUserLoggedIn','uses'=>'UserController@showApplicationAdd'));
+Route::post('addapplication',array('before'=>'csrf','uses'=>'UserController@addJobApplication'));
