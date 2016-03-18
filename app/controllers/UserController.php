@@ -58,6 +58,41 @@ class UserController extends BaseController
         $this->layout->content	= View::make('register');
     }
 
+    public function showChangePasswordPage(){
+        $this->layout->content = View::make('change-password');
+    }
+
+    public function changePassword(){
+        $oldPasswordMatchFlag   =   $this->user->checkOldPasswordMatch(Input::get('op'));
+        if($oldPasswordMatchFlag){
+            $rules      =   array(
+                'np'               =>'required|between:6,12'
+            );
+
+            $validator  = $this->user->validatePasswordChangeInputs(Input::all(), $rules);
+            if ($validator->passes()) {
+                // validation has passed, proceed to next steps
+                $setNewPasswordResult = $this->user->setNewPassword(Input::get('np'));
+                if($setNewPasswordResult){
+                    return Redirect::to('dashboard')->with('message', 'Password Change Successful');
+                }
+                else{
+                    return Redirect::to('change-password')->with('errorMessage', 'There was a problem changing the password, try again in few minutes');
+                }
+
+            }
+            else{
+                // validation has failed, display error messages
+                return Redirect::to('change-password')->with('message', 'Please correct the following errors')->withErrors($validator);
+            }
+
+        }
+        else{
+            return Redirect::to('change-password')
+                ->with('errorMessage', 'Sorry, your old password is incorrect.');
+        }
+
+    }
     public function registerUser(){
         $rules      = $this->user->getRegistrationValidationRules();
         $messages = array(

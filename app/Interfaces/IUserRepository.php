@@ -19,5 +19,9 @@ interface IUserRepository {
 
     public function sendWelcomeMail($newuser);
     public function validateUserCredentials();
+
+    public function checkOldPasswordMatch($oldPassword);
+    public function validatePasswordChangeInputs($inputs,$rules);
+    public function setNewPassword($newpassword);
 }
 ?>

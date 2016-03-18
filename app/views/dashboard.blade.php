@@ -54,6 +54,7 @@
                 background-color: #339933;
                 color: #fff;;
             }
+            .center-content{text-align: center;}
 
         </style>
     @stop
@@ -66,8 +67,8 @@
 
         <div class="dashboard-container col-xs-12">
             @if (Session::has('addition_success_message'))
-                <div class="col-xs-12">
-                    <p class="alert alert-success">
+                {{--<div class="col-xs-12">--}}
+                    <p class="alert alert-success center-content">
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
@@ -76,7 +77,21 @@
                         <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
                         {{ Session::get('addition_success_message') }}
                     </p>
-                </div>
+                {{--</div>--}}
+            @endif
+
+            @if (Session::has('message'))
+                {{--<div class="col-xs-12">--}}
+                    <p class="alert alert-success center-content">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+
+                        <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
+                        {{ Session::get('message') }}
+                    </p>
+                {{--</div>--}}
             @endif
 
             <div class="metrodisplay col-xs-12 col-md-3">

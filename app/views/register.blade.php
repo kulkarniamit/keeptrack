@@ -28,7 +28,6 @@
                 float: none;
                 margin: 0 auto;
             }
-            /* New addons */
             .reg-form{
                 background-color: #FFF;
                 box-shadow: 0 0 2px rgba(0, 0, 0, 0.118);
@@ -66,9 +65,7 @@
                         <div class="alert alert-danger alert-dismissible  fade in" role="alert">
 
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                {{--<span aria-hidden="true">×</span>--}}
                                 <span aria-hidden="true">&times;</span>
-                                {{--<span class="sr-only">Close</span>--}}
                             </button>
 
                             <span class="glyphicon glyphicon-exclamation-sign" style="padding-right:5px;"></span>

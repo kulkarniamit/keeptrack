@@ -113,8 +113,51 @@ class UserRepository implements \Interfaces\IUserRepository {
                 ->subject($subject);
 //            \Log::info(\View::make('emails.welcome',$data)->render());
         });
-
-
     }
+
+    /**
+     * Check whether old password matches the records
+     *
+     * @param  \Input  $oldPassword
+     * @return bool
+     */
+    public function checkOldPasswordMatch($oldPassword) {
+        if(Hash::check($oldPassword, Auth::user()->password)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Validate new password and old password fields
+     *
+     * @param  \Input  $inputs
+     * @param  array  $rules
+     * @return \Illuminate\Validation\Validator
+     */
+    public function validatePasswordChangeInputs($inputs,$rules){
+        $messages = array(
+            'np.required'              =>  'Please enter the new password',
+            'np.between'               =>  'New Password must be between 6 and 12 characters'
+        );
+        return Validator::make($inputs, $rules,$messages);
+    }
+
+    /**
+     * Set the new password
+     *
+     * @param  \Input  $inputs
+     * @param  array  $rules
+     * @return bool
+     */
+    public function setNewPassword($newpassword){
+        $user = \User::findOrFail(Auth::user()->id);
+        $user->password = Hash::make($newpassword);
+        if($user->save()){
+            return true;
+        }
+        return false;
+    }
+
 }
 ?>

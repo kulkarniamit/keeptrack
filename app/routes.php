@@ -26,3 +26,6 @@ Route::get('logout',	array('before'=>'isUserLoggedIn','uses'=>'UserController@sh
 
 Route::get('addapplication',array('before'=>'isUserLoggedIn','uses'=>'UserController@showApplicationAdd'));
 Route::post('addapplication',array('before'=>'csrf','uses'=>'UserController@addJobApplication'));
+
+Route::get('change-password',array('before'=>'isUserLoggedIn','uses'=>'UserController@showChangePasswordPage'));
+Route::post('pchandler',array('before'=>'csrf','uses'=>'UserController@changePassword'));
