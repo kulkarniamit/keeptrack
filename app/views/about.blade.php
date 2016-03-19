@@ -12,7 +12,7 @@
     {{--<link rel="icon" href="../../favicon.ico">--}}
     {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300')}}
 
-    <title>Welcome to keeptrack</title>
+    <title>About us | KeepTrack</title>
 
     <!-- Bootstrap core CSS -->
     {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')}}
@@ -50,11 +50,20 @@
         }
         @media (min-width: 768px){
             .lead {
-                    font-size: 14px;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 2;
             }
         }
+        .yell-md{
+            font-size:60px;
+            font-weight:700;
+        }
+        .yell-xs{
+            font-size:32px;
+            font-weight:700;
+        }
     </style>
-
 </head>
 
 <body>
@@ -67,13 +76,9 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">KeepTrack</h3>
+                    <a href="/"><h3 class="masthead-brand">KeepTrack</h3></a>
                     <nav>
                         <ul class="nav masthead-nav">
-                            {{--<li class="active"><a href="#">Home</a></li>--}}
-                            <li>
-                                <a href="about" style="color: #FFF; font-weight: 500; font-size: 12px;">About us</a>
-                            </li>
                             <li>
                                 <a href="login">
                                     <button aria-label="Left Align" class="btn btn-default btn-sm" type="button">Login</button>
@@ -84,13 +89,17 @@
             </div>
 
             <div class="inner cover">
-                {{--<h1 class="cover-heading">Track your job applications</h1>--}}
-                <h1 class="cover-heading">Track</h1>
-
-                <p class="lead">Maintain a list of your applied jobs, change status, track dates, tag friends for jobs and more...</p>
-                <p class="lead">A Simple and Clean Interface awaits you</p>
+                <p class="yell-md hidden-xs hidden-sm">We were you!</p>
+                <p class="yell-xs visible-xs visible-sm">We were you!</p>
+                <p class="lead">Yes, we have been there and done that. Managing excel sheets,
+                    forgetting to update the applied jobs, trying to recall an employer when they call,
+                    sharing job listings with friends, you name it and we have done it both for internships and full-time jobs.
+                    We are just a bunch of friends who saw the need for a central platform to store,
+                    share and keep track of our applied jobs and thus was born "KeepTrack".
+                    We are extremely happy with the overwhelming response for this simple v1.0 product from
+                    our juniors at NYU. KeepTrack has helped students create and track over 100,000 applications so far.</p>
                 <p class="lead">
-                    <a href="register" class="btn btn-lg btn-default">Register</a>
+                    We continue to hear your feedback and would want to make this a better platform
                 </p>
             </div>
 
@@ -119,16 +128,6 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 {{ HTML::script('assets/js/ie10-viewport-bug-workaround.js') }}
 <script>
-    var texts = ['Track','Save','Manage','Share','Tag','Jobs'];
-    var i = 0;
-    (function cycle() {
-        $('h1').html(texts[i]);
-        $("h1").fadeIn(700)
-                .delay(1200)
-                .fadeOut(700, cycle);
-        i = ++i % texts.length;
-    })();
-
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
