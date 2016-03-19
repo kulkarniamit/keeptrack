@@ -21,7 +21,7 @@ Route::get('about',	function(){
 });
 
 
-Route::get('register',	array('uses'=>'UserController@showRegistrationPage'));
+Route::get('register',	array('before'=>'ifUserLoggedIn','uses'=>'UserController@showRegistrationPage'));
 Route::post('register',	array('before'=>'csrf','uses'=>'UserController@registerUser'));
 Route::get('login',		array('before'=>'ifUserLoggedIn','uses'=>'UserController@showLogin'));
 Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUserCredentials'));
