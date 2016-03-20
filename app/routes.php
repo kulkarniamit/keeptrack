@@ -26,6 +26,12 @@ Route::post('register',	array('before'=>'csrf','uses'=>'UserController@registerU
 Route::get('login',		array('before'=>'ifUserLoggedIn','uses'=>'UserController@showLogin'));
 Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUserCredentials'));
 Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
+//Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
+//	return View::make('dashboardangular');
+//}));
+//Route::get('dashboard',function(){
+//	return Application::whereUserId(Auth::user()->id)->get();
+//});
 Route::get('logout',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showLogout'));
 
 Route::get('addapplication',array('before'=>'isUserLoggedIn','uses'=>'UserController@showApplicationAdd'));
@@ -33,3 +39,14 @@ Route::post('addapplication',array('before'=>'csrf','uses'=>'UserController@addJ
 
 Route::get('change-password',array('before'=>'isUserLoggedIn','uses'=>'UserController@showChangePasswordPage'));
 Route::post('pchandler',array('before'=>'csrf','uses'=>'UserController@changePassword'));
+
+
+// API ROUTES ==================================
+Route::group(array('prefix' => 'api'), function() {
+	Route::resource('jobs', 'JobapplicationController');
+});
+
+// Testing the environment
+Route::get('env',function(){
+	return App::environment();
+});

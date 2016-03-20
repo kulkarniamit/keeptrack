@@ -55,7 +55,31 @@
                 color: #fff;;
             }
             .center-content{text-align: center;}
-
+            .jobscontainer{
+                float: none;
+                border: 1px solid #EEE;
+                margin: 0 auto;
+                overflow: hidden;
+                padding: 5px;
+            }
+            .jobcompany{
+                background-color: #CCC;
+                padding:5px;
+            }
+            .editdelete{
+                text-align: right;
+            }
+            .companytitle, .companyedit{
+                padding: 0;
+            }
+            .trashbutton{
+                padding:2px 6px;
+                font-size:12px;
+            }
+            .editbutton{
+                padding:2px 6px;
+                font-size:12px;
+            }
         </style>
     @stop
 
@@ -110,6 +134,52 @@
                     </div>
                 </div>
             </div>
+
+            {{--An Experimental View block--}}
+            {{--<div class="col-xs-12 col-md-7 jobscontainer">--}}
+                {{--<div class="col-xs-12 col-md-12 jobcompany">--}}
+                    {{--<div class="col-md-8 companytitle">--}}
+                        {{--Hewlett-Packard--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-4 editdelete companyedit">--}}
+                        {{--<button type="button" class="btn btn-default editbutton" aria-label="Left Align">--}}
+                            {{--<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>--}}
+                        {{--</button>--}}
+                        {{--<button type="button" class="btn btn-danger trashbutton" aria-label="Left Align">--}}
+                            {{--<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>--}}
+                        {{--</button>--}}
+                    {{--</div>--}}
+
+                {{--</div>--}}
+                {{--<div class="jobdetailbox">--}}
+                    {{--<div class="col-md-3 detaillabel">Job #</div>--}}
+                    {{--<div class="col-md-9 detailinfo">--}}
+                        {{--<div class="jobid">978978</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                {{--<div class="jobdetailbox">--}}
+                    {{--<div class="col-md-3 detaillabel">Job Link</div>--}}
+                    {{--<div class="col-md-9 detailinfo">--}}
+                        {{--<div class="joblink"><a href="http://www.google.com">Link</a></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                {{--<div class="jobdetailbox">--}}
+                    {{--<div class="col-md-3 detaillabel">Role</div>--}}
+                    {{--<div class="col-md-9 detailinfo">--}}
+                        {{--<div class="jobrole">System Software Intern</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                {{--<div class="jobdetailbox">--}}
+                    {{--<div class="col-md-3 detaillabel">Applied on</div>--}}
+                    {{--<div class="col-md-9 detailinfo">--}}
+                        {{--<div class="jobdate">26th Jan, 2016</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
             <div class="col-center col-md-12">
                 <div class="page-desc col-xs-12  table-responsive">
                     <table class="table table-bordered table-hover">
