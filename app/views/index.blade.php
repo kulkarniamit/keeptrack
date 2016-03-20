@@ -88,6 +88,7 @@
                 <h1 class="cover-heading">Track</h1>
 
                 <p class="lead">Maintain a list of your applied jobs, change status, track dates, tag friends for jobs and more...</p>
+                <p class="lead">We will continue to add features based on your requests</p>
                 <p class="lead">A Simple and Clean Interface awaits you</p>
                 <p class="lead">
                     <a href="register" class="btn btn-lg btn-default">Register</a>
