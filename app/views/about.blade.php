@@ -101,7 +101,7 @@
                 <p class="lead">
 			KeepTrack has helped students create and track over 5000 applications so far.
                     We continue to hear your feedback and would want to make this a better platform.
-			Write to us at <a style="color:blue;" href="mail:support@track-maadu.rhcloud.com">KeepTrack Support</a>
+			Write to us at <a style="color:blue;" href="mail:support.keeptrack@yandex.com">KeepTrack Support</a>
                 </p>
             </div>
 
