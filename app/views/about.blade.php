@@ -97,9 +97,11 @@
                     We are just a bunch of friends who saw the need for a central platform to store,
                     share and keep track of our applied jobs and thus was born "KeepTrack".
                     We are extremely happy with the overwhelming response for this simple v1.0 product from
-                    our juniors at NYU. KeepTrack has helped students create and track over 100,000 applications so far.</p>
+                    our juniors at NYU.</p>
                 <p class="lead">
-                    We continue to hear your feedback and would want to make this a better platform
+			KeepTrack has helped students create and track over 5000 applications so far.
+                    We continue to hear your feedback and would want to make this a better platform.
+			Write to us at <a style="color:blue;" href="mail:support@track-maadu.rhcloud.com">KeepTrack Support</a>
                 </p>
             </div>
 

@@ -19,7 +19,7 @@
             </p>
             <p>Please ignore this email if you did not register</p>
             <p>We are always open to feedback and would love to hear from you</p>
-            <p>Send your valuable feedback to kulkarniamit@outlook.com</p>
+            <p>Send your valuable feedback to support@track-maadu.rhcloud.com/</p>
         </div>
     </div>
 </div>
