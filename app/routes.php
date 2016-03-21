@@ -28,7 +28,7 @@ Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUser
 Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
 Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
 //	return View::make('dashboardangular');
-	$numberOfApplications = \Application::count();
+	$numberOfApplications = \Application::whereUserId(Auth::user()->id)->count();
 	return View::make('dashboardbackbone')->with('numberOfApplications',$numberOfApplications);;
 }));
 //Route::get('dashboard',function(){

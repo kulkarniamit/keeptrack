@@ -20,6 +20,7 @@ class JobapplicationController extends \BaseController {
 	public function index()
 	{
 		return Response::json(Application::whereUserId(Auth::user()->id)->orderBy('created_at','desc')->get());
+//		return Response::json(Application::whereUserId(Auth::user()->id)->get());
 	}
 
 
