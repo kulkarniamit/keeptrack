@@ -152,7 +152,7 @@
                         <button type="button" class="btn btn-default editbutton" aria-label="Left Align">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                         </button>
-                        <button type="button" class="btn btn-danger trashbutton" ng-click="deleteJob(job.id)" aria-label="Left Align">
+                        <button type="button" class="btn btn-danger trashbutton" ng-click="deleteJob(job.id,$index)" aria-label="Left Align">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                         </button>
                     </div>

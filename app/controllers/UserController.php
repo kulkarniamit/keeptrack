@@ -50,12 +50,6 @@ class UserController extends BaseController
     public function showDashboard(){
 //        $allApplications = \Application::where('user_id','=>',Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
         $allApplications = Application::whereUserId(Auth::user()->id)->orderBy('created_at','desc')->paginate(10);
-//        return var_dump($allApplications);
-//        $allApplications=   Application::with(
-//            ['user'      =>
-//                function($q){
-//                    $q->select('id');
-//                }])->whereUserId(Auth::user()->id)->first(['id']);
 
         $numberOfApplications = \Application::count();
         $this->layout->content = View::make('dashboard')->with('allApplications',$allApplications)

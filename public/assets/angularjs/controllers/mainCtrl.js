@@ -46,12 +46,14 @@ angular.module('mainCtrl', [])
 
         // function to handle deleting a job
         // DELETE A JOB ====================================================
-        $scope.deleteJob = function(id) {
+        $scope.deleteJob = function(id,index) {
             $scope.loading = true;
 
             // use the function we created in our service
             Job.destroy(id)
                 .success(function(data) {
+                    //$scope.jobs.splice(index,1);
+                    //$scope.loading = false;
                  //if successful, we'll need to refresh the comment list
                     Job.get()
                         .success(function(getData) {

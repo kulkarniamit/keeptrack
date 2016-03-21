@@ -1,0 +1,76 @@
+/*
+    Created on : 12 Jun, 2014, 11:40:16 PM
+    Author     : amit
+*/
+
+/*******************************************************************/
+/**
+ * Customizing Modal for our site
+ */
+/*******************************************************************/
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.70;
+    background-color: #FFF;
+}
+
+/*
+ * Fix to prevent movement of screen to left
+ * on modal opening
+ */
+.modal{
+    overflow-y: hidden;
+}
+
+.modal-open{
+    overflow: auto;
+    /*3.3.1 changed something and the content "jumps" when the modal is opened.*/
+    /*This can be prevented with the below CSS*/
+    padding-right: 0 !important;
+}
+
+
+.modal-body{
+    font-size: 12px;
+    text-align: center;
+
+    /* Make sure window does not get bigger when
+     * list of names goes longer
+     */
+    max-height: 400px;
+    overflow-y: auto;
+}
+.modal-footer{
+    padding: 10px 10px 10px;
+}
+.modal-header{
+    background-color: #5cb85c;
+}
+div#myModalLabel,.modal-title{
+    color: #FFF;
+    font-size: 13px;
+}
+.modal-footer> button.btn{
+    font-size: 12px;
+}
+
+.modal-dialog{
+    min-width: 500px;
+    max-width: 600px;
+    margin: 10px auto;
+}
+.modal-content{
+    border-radius: 0;
+}
+/*
+ *  Overriding the bootstrap default slideDown effect
+ *  to change to fadeIn effect
+ */
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    transform: translate(0, 0%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}

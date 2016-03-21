@@ -26,9 +26,11 @@ Route::post('register',	array('before'=>'csrf','uses'=>'UserController@registerU
 Route::get('login',		array('before'=>'ifUserLoggedIn','uses'=>'UserController@showLogin'));
 Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUserCredentials'));
 Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
-//Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
+Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
 //	return View::make('dashboardangular');
-//}));
+	$numberOfApplications = \Application::count();
+	return View::make('dashboardbackbone')->with('numberOfApplications',$numberOfApplications);;
+}));
 //Route::get('dashboard',function(){
 //	return Application::whereUserId(Auth::user()->id)->get();
 //});
