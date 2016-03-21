@@ -161,17 +161,17 @@ var dykCV   =   Backbone.View.extend({
 
         this.collection.fetch({
             success: function(collection, response, options){
-                if(!collection.length){
-                    $('#dyk-intro-box').show();
-                }
+                //if(!collection.length){
+                //    $('#dyk-intro-box').show();
+                //}
             }
         });
         this.listenTo(this.collection,
             'remove',
             function(model, collection){
-                if(!collection.length){
-                    $('#dyk-intro-box').show();
-                }
+                //if(!collection.length){
+                //    $('#dyk-intro-box').show();
+                //}
             }
         );
         var self = this;
@@ -345,6 +345,7 @@ var dykMV   =   Backbone.View.extend({
                                 success:function(user,response,options){
                                     if(response.updateSuccess === false){
                                         // Call the Modal and show the error
+                                        $('body').css('padding-right','0px');
                                         self.model.set('company',company);
                                         self.model.set('jobid',jobid);
                                         self.model.set('role',jobrole);
@@ -363,7 +364,7 @@ var dykMV   =   Backbone.View.extend({
                                                     label: "OK",
                                                     className: "btn-success",
                                                     callback: function() {
-                                                        $('body').css('padding-right','15px');
+
                                                     }
                                                 }
                                             }
