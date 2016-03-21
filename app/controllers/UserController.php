@@ -124,8 +124,8 @@ class UserController extends BaseController
     public function addJobApplication(){
         $rules      = $this->user->getJobApplicationRules();
         $messages = array(
-            'jobid.required'    => 'JOB # is required (helps you in tracking)',
-            'jobid.unique'      => 'Looks like you have already applied for this job!',
+//            'jobid.required'    => 'JOB # is required (helps you in tracking)',
+//            'jobid.unique'      => 'Looks like you have already applied for this job!',
             'company.required'  => 'Oops, you forgot you insert the Company name',
             'role.required'     => 'Please enter the role you are applying for',
             'joblink.url'=> 'That does not look like a valid URL, please check again'

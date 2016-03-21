@@ -29,11 +29,8 @@ Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController
 Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
 //	return View::make('dashboardangular');
 	$numberOfApplications = \Application::whereUserId(Auth::user()->id)->count();
-	return View::make('dashboardbackbone')->with('numberOfApplications',$numberOfApplications);;
+	return View::make('dashboardbackbone')->with('numberOfApplications',$numberOfApplications);
 }));
-//Route::get('dashboard',function(){
-//	return Application::whereUserId(Auth::user()->id)->get();
-//});
 Route::get('logout',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showLogout'));
 
 Route::get('addapplication',array('before'=>'isUserLoggedIn','uses'=>'UserController@showApplicationAdd'));
@@ -51,4 +48,8 @@ Route::group(array('prefix' => 'api'), function() {
 // Testing the environment
 Route::get('env',function(){
 	return App::environment();
+});
+
+Route::get('getparams',function(){
+	return getenv('OPENSHIFT_MYSQL_DB_HOST');
 });

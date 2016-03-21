@@ -89,7 +89,7 @@ class JobapplicationController extends \BaseController {
 		}
 		else{
 			$rules = array(
-				'jobid'                 =>'required|unique:applications',
+//				'jobid'                 =>'required|unique:applications',
 				'company'               =>'required|min:2',
 				'role'                  =>'required|min:2',
 //			'joblink'               =>'url',

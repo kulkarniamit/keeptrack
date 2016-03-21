@@ -29,7 +29,11 @@
         <div class="jobdetailbox">
             <div class="col-md-3 col-xs-4 detaillabel">Job #</div>
             <div class="col-md-9 col-xs-8 detailinfo">
+                {{#if job.jobid}}
                 <div class="jobid">{{job.jobid}}</div>
+                {{else}}
+                <div class="jobid">NA</div>
+                {{/if}}
             </div>
         </div>
 

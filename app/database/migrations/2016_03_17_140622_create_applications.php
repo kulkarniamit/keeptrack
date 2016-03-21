@@ -20,7 +20,7 @@ class CreateApplications extends Migration {
 				->references('id')->on('users')
 				->onDelete('cascade')
 				->onUpdate('cascade');
-			$table->string('jobid',20)->unique();
+			$table->string('jobid',20)->default("NA");
 			$table->string('company',100);
 			$table->string('role',200);
 			$table->string('joblink',500);
