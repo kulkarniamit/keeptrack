@@ -27,8 +27,8 @@
 
         </div>
         <div class="jobdetailbox">
-            <div class="col-md-3 col-xs-3 detaillabel">Job #</div>
-            <div class="col-md-9 col-xs-9 detailinfo">
+            <div class="col-md-3 col-xs-4 detaillabel">Job #</div>
+            <div class="col-md-9 col-xs-8 detailinfo">
                 <div class="jobid">{{job.jobid}}</div>
             </div>
         </div>
@@ -45,15 +45,15 @@
 <!--        </div>-->
 
         <div class="jobdetailbox">
-            <div class="col-md-3 col-xs-3 detaillabel">Role</div>
-            <div class="col-md-9 col-xs-9 detailinfo">
+            <div class="col-md-3 col-xs-4 detaillabel">Role</div>
+            <div class="col-md-9 col-xs-8 detailinfo">
                 <div class="jobrole">{{job.role}}</div>
             </div>
         </div>
 
         <div class="jobdetailbox">
-            <div class="col-md-3 col-xs-3 detaillabel">Applied on</div>
-            <div class="col-md-9 col-xs-9 detailinfo">
+            <div class="col-md-3 col-xs-4 detaillabel">Applied on</div>
+            <div class="col-md-9 col-xs-8 detailinfo">
                 <div class="jobdate">{{job.readable_time}}</div>
             </div>
         </div>
