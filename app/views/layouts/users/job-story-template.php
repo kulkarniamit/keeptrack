@@ -9,10 +9,14 @@
 <script id="item-template" type="text/x-handlebars-template">
     <div class="col-xs-12 col-md-7 jobscontainer">
         <div class="col-xs-12 col-md-12 jobcompany">
-            <div class="col-md-8 companytitle">
-                {{job.company}}
+            <div class="col-md-8 col-xs-8 companytitle">
+                {{#if job.joblink}}
+                    <a href="{{job.joblink}}">{{job.company}}</a>
+                {{else}}
+                    {{job.company}}
+                {{/if}}
             </div>
-            <div class="col-md-4 editdelete companyedit">
+            <div class="col-md-4 col-xs-4 editdelete companyedit">
                 <button type="button" class="btn btn-default editbutton job-update" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
@@ -23,34 +27,34 @@
 
         </div>
         <div class="jobdetailbox">
-            <div class="col-md-3 detaillabel">Job #</div>
-            <div class="col-md-9 detailinfo">
+            <div class="col-md-3 col-xs-3 detaillabel">Job #</div>
+            <div class="col-md-9 col-xs-9 detailinfo">
                 <div class="jobid">{{job.jobid}}</div>
             </div>
         </div>
 
-        <div class="jobdetailbox">
-            <div class="col-md-3 detaillabel">Job Link</div>
-            <div class="col-md-9 detailinfo">
-                {{#if job.joblink}}
-                    <div class="joblink"><a href="{{job.joblink}}">Link</a></div>
-                {{else}}
-                    <div class="joblink">No link found</div>
-                {{/if}}
-            </div>
-        </div>
+<!--        <div class="jobdetailbox">-->
+<!--            <div class="col-md-3 detaillabel">Job Link</div>-->
+<!--            <div class="col-md-9 detailinfo">-->
+<!--                {{#if job.joblink}}-->
+<!--                    <div class="joblink"><a href="{{job.joblink}}">Link</a></div>-->
+<!--                {{else}}-->
+<!--                    <div class="joblink">No link found</div>-->
+<!--                {{/if}}-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="jobdetailbox">
-            <div class="col-md-3 detaillabel">Role</div>
-            <div class="col-md-9 detailinfo">
+            <div class="col-md-3 col-xs-3 detaillabel">Role</div>
+            <div class="col-md-9 col-xs-9 detailinfo">
                 <div class="jobrole">{{job.role}}</div>
             </div>
         </div>
 
         <div class="jobdetailbox">
-            <div class="col-md-3 detaillabel">Applied on</div>
-            <div class="col-md-9 detailinfo">
-                <div class="jobdate">{{job.applied_on}}</div>
+            <div class="col-md-3 col-xs-3 detaillabel">Applied on</div>
+            <div class="col-md-9 col-xs-9 detailinfo">
+                <div class="jobdate">{{job.readable_time}}</div>
             </div>
         </div>
     </div>

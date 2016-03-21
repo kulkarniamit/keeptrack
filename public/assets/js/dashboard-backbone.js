@@ -123,6 +123,7 @@ var dykM =   Backbone.Model.extend({
         joblink         :   '',
         role            :   '',
         applied_on      :   '',
+        readable_time   :   ''
     },
     parse   :   function(model, options){
         if(model.source !== undefined){
@@ -131,6 +132,14 @@ var dykM =   Backbone.Model.extend({
             var parsedSource    =   model.source.parseURL();
             model.source = parsedSource;
         }
+        if(typeof(model.applied_on) === "string"){
+            // If the updateSuccess if true, no need of updating timestamp
+            //var friendly = moment(model.applied_on, "MMMM Do YYYY").fromNow();
+            var friendly = moment(model.applied_on, 'YYYY-MM-DD').format('MMMM Do, YYYY');
+            model.readable_time =  friendly;
+        }
+
+        console.log(model);
         return model;
     }
 });
@@ -227,66 +236,8 @@ var dykMV   =   Backbone.View.extend({
     events: {
         "click .js-ikt"         :   "updateIktCounter",
         "click .job-remove"     :   "removeDyk",
-        "click .js-ikt-list"    :   "fetchIktList",
         "click .job-update"     :   "updateJob",
         "submit"                :   "submit"
-    },
-    fetchIktList:function(e){
-        if(this.model.get('ikt_count') !== '0'){
-            this.fetchList(this.model,"ikt",'Students who knew this');
-        }
-    },
-    fetchList   :   function(model,identifier,title){
-        model.fetch(
-            {
-                data: { list: identifier},
-                success:function(model,response){
-                    var names = "";
-                    for(var i=0; i < response.length; i++){
-                        var userEntry   =   '<a href="'+response[i].unl+'">'+
-                            '<div class="dyk-list-entries clearfix">'+
-                            '<div class="pp-tn pull-left">'+
-                            '<img src="'+response[i].pp+'" width="50" height="50"/>'+
-                            '</div>'+
-                            '<div class="dyk-entries-name">'+
-                            response[i].name+
-                            '</div>'+
-                            '</div>'+
-                            '</a>';
-
-                        names+=userEntry;
-                    }
-                    var glyphiconForTitle = '<span class="glyphicon glyphicon-align-justify" style="padding-right:5px"></span>';
-                    bootbox.dialog({
-                        message: names,
-                        title: glyphiconForTitle+title,
-                        onEscape: function() {},
-                        buttons: {
-                            success: {
-                                label: "OK",
-                                className: "btn-primary",
-                                callback: function() {
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        );
-    },
-    updateIktCounter: function(e){
-        e.preventDefault();
-        if(this.model.get('allow_vote')){
-            var ikt_count   =   this.model.get("ikt_count");
-            this.model.set("ikt_count",++ikt_count);
-            this.model.set("allow_vote",false);
-            this.model.set("updated_option",1);
-            this.model.set("chosen_option","You knew this");
-            this.model.save({updated_option:1},{patch:true,
-                success:    function(){
-                }
-            });
-        }
     },
     removeDyk: function(e){
         e.preventDefault();
@@ -308,6 +259,8 @@ var dykMV   =   Backbone.View.extend({
                                     //    self.remove();
                                     //    Backbone.View.prototype.remove.call(self);
                                     //});
+                                    var currentCount = $('#jobcount').text();
+                                    $('#jobcount').text(currentCount-1);
                                     self.$el.slideUp("slow",function(){
                                         self.remove();
                                         Backbone.View.prototype.remove.call(self);
@@ -388,14 +341,13 @@ var dykMV   =   Backbone.View.extend({
                         className: "btn-success",
                         callback: function () {
                             var jobUpdateDetails = $('#job-update-form').serializeObject();
-                            //self.model.set('company',$('#company').val());
-                            //self.model.set('jobid',$('#jobid').val());
-                            //self.model.set('role',$('#role').val());
                             self.model.save(jobUpdateDetails,{patch:true,
                                 success:function(user,response,options){
-                                    debugger;
                                     if(response.updateSuccess === false){
                                         // Call the Modal and show the error
+                                        self.model.set('company',company);
+                                        self.model.set('jobid',jobid);
+                                        self.model.set('role',jobrole);
                                         var errorMsg = '';
                                         for(var x in response.error){
                                             errorMsg += response.error[x]+"<br/>";
@@ -409,8 +361,9 @@ var dykMV   =   Backbone.View.extend({
                                             buttons: {
                                                 success: {
                                                     label: "OK",
-                                                    className: "btn-primary",
+                                                    className: "btn-success",
                                                     callback: function() {
+                                                        $('body').css('padding-right','15px');
                                                     }
                                                 }
                                             }
@@ -418,6 +371,7 @@ var dykMV   =   Backbone.View.extend({
                                         return false;
                                     }
                                     else{
+                                        console.log("Iam here");
                                         self.model.set('company',$('#company').val());
                                         self.model.set('jobid',$('#jobid').val());
                                         self.model.set('role',$('#role').val());

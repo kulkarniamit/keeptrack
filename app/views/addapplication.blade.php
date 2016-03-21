@@ -1,4 +1,4 @@
-{{--@extends('layouts.main')--}}
+@extends('layouts.users.userdefault')
     @section('meta')
 	{{-- Extending the meta from main layout --}}
 	@parent
@@ -14,6 +14,7 @@
     @section('stylesheets')
 	@parent
         {{HTML::Style('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.standalone.min.css')}}
+
         <style type="text/css">
             .form-control{border-radius: 0px;}
             .welcome-heading {

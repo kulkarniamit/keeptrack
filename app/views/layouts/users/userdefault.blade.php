@@ -18,14 +18,15 @@
         {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300')}}
         {{ HTML::style('assets/css/top-navbar-fixed-top.css') }}
 	    {{ HTML::style('assets/css/base.css')}}
+        {{ HTML::style('assets/css/userlayout.css')}}
         <style>
             .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
-                background-color: #339933;
+                background-color: #5cb85c;
                 color: #FFF;
                 text-decoration: none;
             }
             .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
-                background-color: #339933;
+                background-color: #5cb85c;
                 color: #fff;
                 outline: 0 none;
                 text-decoration: none;

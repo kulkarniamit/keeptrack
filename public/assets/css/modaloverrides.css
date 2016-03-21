@@ -21,14 +21,20 @@
     overflow-y: hidden;
 }
 
+html {
+    overflow-y: scroll !important;
+}
+
 .modal-open{
     overflow: auto;
     /*3.3.1 changed something and the content "jumps" when the modal is opened.*/
     /*This can be prevented with the below CSS*/
-    padding-right: 0 !important;
+    padding-right: 0px !important;
 }
 
-
+.form-control{
+    font-size: 12px;
+}
 .modal-body{
     font-size: 12px;
     text-align: center;
@@ -47,14 +53,14 @@
 }
 div#myModalLabel,.modal-title{
     color: #FFF;
-    font-size: 13px;
+    font-size: 12px;
 }
 .modal-footer> button.btn{
     font-size: 12px;
 }
 
 .modal-dialog{
-    min-width: 500px;
+    /*min-width: 500px;*/
     max-width: 600px;
     margin: 10px auto;
 }

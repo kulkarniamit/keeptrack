@@ -1,4 +1,5 @@
 {{--@extends('layouts.main')--}}
+@extends('layouts.users.userdefault')
     @section('meta')
 	{{-- Extending the meta from main layout --}}
 	@parent

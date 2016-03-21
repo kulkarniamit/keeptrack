@@ -19,19 +19,23 @@
             .welcome-heading {
                 background-color: #FFF;
                 padding: 10px;
-                font-size: 20px;
+                font-size: 18px;
                 font-family: "Open Sans",Tahoma,Ubuntu,Helvetica;
                 font-weight: 300;
                 box-shadow: 0 0 4px rgba(0, 0, 0, 0.206);
+                margin:0 auto;
+                float: none;
+                text-align: center;
             }
             .dashboard-container{
-                background-color: #FFF;
-                box-shadow: 0 0 2px rgba(0, 0, 0, 0.40);
+                /*background-color: #FFF;*/
+                /*box-shadow: 0 0 2px rgba(0, 0, 0, 0.40);*/
                 font-family: "Open Sans",Tahoma,Ubuntu,Helvetica;
                 font-weight: 300;
                 margin: 3px auto 10px;
                 padding: 10px 10px;
                 line-height: 2;
+                font-size:12px;
             }
             thead > tr> th{
                 text-align: center;
@@ -50,9 +54,10 @@
                 padding: 1px;
                 float: none;
                 margin: 0 auto;
+                overflow: hidden;
             }
             .stats{
-                background-color: #339933;
+                background-color: #5cb85c;
                 color: #fff;;
             }
             .center-content{text-align: center;}
@@ -63,16 +68,19 @@
                 overflow: hidden;
                 padding: 5px;
                 box-shadow: 0 0 4px rgba(0, 0, 0, 0.208);
+                background-color: #FFF;
             }
             .jobcompany{
-                background-color: #eee;
+                /*background-color: #eee;*/
                 padding:5px;
+                border-bottom: 1px solid #CCC;
             }
             .editdelete{
                 text-align: right;
             }
             .companytitle, .companyedit{
                 padding: 0;
+                font-weight:800;
             }
             .trashbutton{
                 padding:2px 6px;
@@ -82,18 +90,20 @@
                 padding:2px 6px;
                 font-size:12px;
             }
+            body{
+                overflow: hidden !important;
+            }
         </style>
     @stop
 
     @section('content')
 
-        <div class="welcome-heading col-xs-12">
+        <div class="welcome-heading col-xs-12 col-md-7">
             Welcome {{ Auth::user()->first_name}}!
         </div>
 
         <div class="dashboard-container col-xs-12">
             @if (Session::has('addition_success_message'))
-                {{--<div class="col-xs-12">--}}
                     <p class="alert alert-success center-content">
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span>
@@ -103,11 +113,9 @@
                         <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
                         {{ Session::get('addition_success_message') }}
                     </p>
-                {{--</div>--}}
             @endif
 
             @if (Session::has('message'))
-                {{--<div class="col-xs-12">--}}
                     <p class="alert alert-success center-content">
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span>
@@ -117,7 +125,6 @@
                         <span class="glyphicon glyphicon-ok-sign" style="padding-right:5px;"></span>
                         {{ Session::get('message') }}
                     </p>
-                {{--</div>--}}
             @endif
 
             <div class="metrodisplay col-xs-12 col-md-3">
@@ -127,7 +134,7 @@
                             <div class="col-xs-12" style="text-align: center; font-size: 14px; font-weight: 300; padding: 1px 0px;">
                                 # Applied
                             </div>
-                            <div class="col-xs-12 no" style="text-align: center; font-size: 36px; font-weight: 800; line-height: 1.5;">
+                            <div class="col-xs-12 no" id="jobcount" style="text-align: center; font-size: 36px; font-weight: 800; line-height: 1.5;">
                                 {{$numberOfApplications}}
                             </div>
                         </div>
@@ -196,7 +203,8 @@
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js')}}
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js')}}
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js')}}
-        {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.2.0/bootbox.min.js')}}
+        {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js')}}
+        {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js') }}
         @include('layouts.users.job-story-template')
         {{ HTML::script('assets/js/dashboard-backbone.js') }}
 
