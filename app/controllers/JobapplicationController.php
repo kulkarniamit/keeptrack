@@ -19,8 +19,21 @@ class JobapplicationController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(Application::whereUserId(Auth::user()->id)->orderBy('created_at','desc')->get());
-//		return Response::json(Application::whereUserId(Auth::user()->id)->get());
+		/*
+         * Query format for infiniscroll:
+         * http://eschoolnetwork/connect/student/dyk?until=183&page_size=3
+         * Fetch the page_size and perform further actions
+         */
+		$pageNumber             =   Input::has('page')?Input::get('page'):1;
+		$numberOfJobsToFetch    =   Input::has('page_size')?Input::get('page_size'):3;
+		$numberOfJobsToSkip     =   Input::has('page_size')?Input::get('page_size')*($pageNumber-1):0;
+//		return Response::json(Application::whereUserId(Auth::user()->id)->orderBy('created_at','desc')->get());
+
+		return Response::json(Application::whereUserId(Auth::user()->id)
+								->orderBy('created_at','desc')
+								->take($numberOfJobsToFetch)
+								->skip($numberOfJobsToSkip)
+								->get());
 	}
 
 
@@ -98,8 +111,8 @@ class JobapplicationController extends \BaseController {
 		}
 
 		$messages = array(
-			'jobid.required'    => 'JOB # is required (helps you in tracking)',
-			'jobid.unique'      => 'Looks like you have already applied for this job!',
+//			'jobid.required'    => 'JOB # is required (helps you in tracking)',
+//			'jobid.unique'      => 'Looks like you have already applied for this job!',
 			'company.required'  => 'Oops, you forgot you insert the Company name',
 			'role.required'     => 'Please enter the role you are applying for',
 			'joblink.url'=> 'That does not look like a valid URL, please check again'

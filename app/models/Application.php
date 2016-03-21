@@ -12,6 +12,8 @@
 class Application extends Eloquent {
     protected $table    = 'applications';
     public static $rules = array(
+        // Well, some companies and jobs do not have a Job ID, there is
+        // no point forcing users to insert it
 //        'jobid'                 =>'required|unique:applications',
         'company'               =>'required|min:2',
         'role'                  =>'required|min:2',

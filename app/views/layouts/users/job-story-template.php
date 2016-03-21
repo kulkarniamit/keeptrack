@@ -56,6 +56,13 @@
         </div>
 
         <div class="jobdetailbox">
+            <div class="col-md-3 col-xs-4 detaillabel">Status</div>
+            <div class="col-md-9 col-xs-8 detailinfo">
+                <div class="jobrole">{{job.application_status}}</div>
+            </div>
+        </div>
+
+        <div class="jobdetailbox">
             <div class="col-md-3 col-xs-4 detaillabel">Applied on</div>
             <div class="col-md-9 col-xs-8 detailinfo">
                 <div class="jobdate">{{job.readable_time}}</div>

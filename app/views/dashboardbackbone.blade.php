@@ -60,7 +60,11 @@
                 background-color: #5cb85c;
                 color: #fff;;
             }
-            .center-content{text-align: center;}
+            .center-content{
+                text-align: center;
+                float: none;
+                margin: 0 auto;
+            }
             .jobscontainer{
                 float: none;
                 border: 1px solid #EEE;
@@ -104,7 +108,7 @@
 
         <div class="dashboard-container col-xs-12">
             @if (Session::has('addition_success_message'))
-                    <p class="alert alert-success center-content">
+                    <p class="alert alert-success center-content col-md-7 col-xs-12" id="successmessage">
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
@@ -116,7 +120,7 @@
             @endif
 
             @if (Session::has('message'))
-                    <p class="alert alert-success center-content">
+                    <p class="alert alert-success center-content col-md-7 col-xs-12">
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
@@ -205,7 +209,12 @@
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js')}}
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js')}}
         {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js') }}
+        {{ HTML::script('assets/js/infiniScroll.js') }}
         @include('layouts.users.job-story-template')
         {{ HTML::script('assets/js/dashboard-backbone.js') }}
-
+        <script type="application/javascript">
+            $(document).ready(function(){
+                $('#successmessage').slideUp(2500);
+            });
+        </script>
     @stop

@@ -123,6 +123,7 @@ var dykM =   Backbone.Model.extend({
         joblink         :   '',
         role            :   '',
         applied_on      :   '',
+        application_status:   '',
         readable_time   :   ''
     },
     parse   :   function(model, options){
@@ -175,13 +176,13 @@ var dykCV   =   Backbone.View.extend({
             }
         );
         var self = this;
-        //self.infiniScroll = new Backbone.InfiniScroll(self.collection,
-        //    {
-        //        success: self.appendRender,
-        //        pageSize:   3,
-        //        includePage:    true
-        //    }
-        //);
+        self.infiniScroll = new Backbone.InfiniScroll(self.collection,
+            {
+                success: self.appendRender,
+                pageSize:   3,
+                includePage:    true
+            }
+        );
         //setInterval(function(){
         //    /**
         //     * Update the timings of posts to reflect the

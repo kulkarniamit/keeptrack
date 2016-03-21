@@ -78,7 +78,7 @@ class UserRepository implements \Interfaces\IUserRepository {
         $newjob->company    = ucfirst(Input::get('company'));
         $newjob->role       = ucfirst(Input::get('role'));
         $newjob->joblink    = Input::get('joblink');
-        $newjob->application_status = "Applied";
+        $newjob->application_status = "Applied";    // Initially, the status would be "Applied"
         $newjob->applied_on = Input::get('appliedon');
         try {
             $newjob->save();
