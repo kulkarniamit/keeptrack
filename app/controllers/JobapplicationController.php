@@ -91,31 +91,18 @@ class JobapplicationController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		// We are finally getting the update data!
-//		return Input::all();
 		$currentJob = Application::find($id);
-		if ($currentJob->jobid == Input::get('jobid')){
-			$rules = array(
-				'company'               =>'required|min:2',
-				'role'                  =>'required|min:2',
-			);
-		}
-		else{
-			$rules = array(
-//				'jobid'                 =>'required|unique:applications',
-				'company'               =>'required|min:2',
-				'role'                  =>'required|min:2',
-//			'joblink'               =>'url',
-//			'appliedon'             =>'required',
-			);
-		}
-
+		$rules = array(
+			'company'               =>'required|min:2',
+			'role'                  =>'required|min:2',
+			'joblink'               =>'url',
+		);
 		$messages = array(
 //			'jobid.required'    => 'JOB # is required (helps you in tracking)',
 //			'jobid.unique'      => 'Looks like you have already applied for this job!',
 			'company.required'  => 'Oops, you forgot you insert the Company name',
 			'role.required'     => 'Please enter the role you are applying for',
-			'joblink.url'=> 'That does not look like a valid URL, please check again'
+			'joblink.url'		=> 'That does not look like a valid URL, please check again'
 		);
 		$validator  = $this->user->validateUser(Input::all(), $rules, $messages);
 
@@ -137,8 +124,8 @@ class JobapplicationController extends \BaseController {
 					$currentJob->jobid      = Input::get('jobid');
 					$currentJob->company    = ucfirst(Input::get('company'));
 					$currentJob->role       = ucfirst(Input::get('role'));
-//					$currentJob->joblink    = Input::get('joblink');
-//					$currentJob->application_status = "Applied";
+					$currentJob->joblink    = Input::get('joblink');
+					$currentJob->application_status = ucfirst(Input::get('status'));
 //					$currentJob->applied_on = Input::get('applied_on');
 					$currentJob->save();
 					$responseData['updateSuccess']    =   true;

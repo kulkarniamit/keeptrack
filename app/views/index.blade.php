@@ -98,6 +98,8 @@
 
             <div class="mastfoot">
                 <div class="inner">
+                    <a href="https://twitter.com/intent/tweet?screen_name=keeptrackguys" class="twitter-mention-button" data-related="keeptrackguys">Tweet to @keeptrackguys</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     <p>Made with Keyboard and
                         <span class="glyphicon glyphicon-heart" style="color: #B30000;"></span> in NYC
                     </p>

@@ -14,6 +14,7 @@
     @section('stylesheets')
 	@parent
         {{ HTML::style('assets/css/modaloverrides.css')}}
+{{--        {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css')}}--}}
 
         <style type="text/css">
             .welcome-heading {
@@ -148,55 +149,8 @@
                 </div>
             </div>
 
-            {{--An Experimental View block--}}
             <div id="content">
-
-            </div>
-
-            {{--<div class="col-xs-12 col-md-7 jobscontainer">--}}
-                {{--<div class="col-xs-12 col-md-12 jobcompany">--}}
-                    {{--<div class="col-md-8 companytitle">--}}
-                        {{--Hewlett-Packard--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-4 editdelete companyedit">--}}
-                        {{--<button type="button" class="btn btn-default editbutton" aria-label="Left Align">--}}
-                            {{--<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>--}}
-                        {{--</button>--}}
-                        {{--<button type="button" class="btn btn-danger trashbutton" aria-label="Left Align">--}}
-                            {{--<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>--}}
-                        {{--</button>--}}
-                    {{--</div>--}}
-
-                {{--</div>--}}
-                {{--<div class="jobdetailbox">--}}
-                    {{--<div class="col-md-3 detaillabel">Job #</div>--}}
-                    {{--<div class="col-md-9 detailinfo">--}}
-                        {{--<div class="jobid">978978</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-                {{--<div class="jobdetailbox">--}}
-                    {{--<div class="col-md-3 detaillabel">Job Link</div>--}}
-                    {{--<div class="col-md-9 detailinfo">--}}
-                        {{--<div class="joblink"><a href="http://www.google.com">Link</a></div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-                {{--<div class="jobdetailbox">--}}
-                    {{--<div class="col-md-3 detaillabel">Role</div>--}}
-                    {{--<div class="col-md-9 detailinfo">--}}
-                        {{--<div class="jobrole">System Software Intern</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-                {{--<div class="jobdetailbox">--}}
-                    {{--<div class="col-md-3 detaillabel">Applied on</div>--}}
-                    {{--<div class="col-md-9 detailinfo">--}}
-                        {{--<div class="jobdate">26th Jan, 2016</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-
+                {{--Content inserted by Backbone views--}}
             </div>
         </div>
     @stop
@@ -210,11 +164,12 @@
         {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js')}}
         {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js') }}
         {{ HTML::script('assets/js/infiniScroll.js') }}
+{{--        {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js') }}--}}
         @include('layouts.users.job-story-template')
         {{ HTML::script('assets/js/dashboard-backbone.js') }}
         <script type="application/javascript">
-            $(document).ready(function(){
-                $('#successmessage').slideUp(2500);
-            });
+//            $(document).ready(function(){
+//                $('#successmessage').fadeOut(3000);
+//            });
         </script>
     @stop

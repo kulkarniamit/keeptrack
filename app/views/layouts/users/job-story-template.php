@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-md-12 jobcompany">
             <div class="col-md-8 col-xs-8 companytitle">
                 {{#if job.joblink}}
-                    <a href="{{job.joblink}}">{{job.company}}</a>
+                    <a href="{{job.joblink}}" target="_blank">{{job.company}}</a>
                 {{else}}
                     {{job.company}}
                 {{/if}}

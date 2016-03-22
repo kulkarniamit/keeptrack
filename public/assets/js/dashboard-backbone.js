@@ -1,7 +1,4 @@
 /**
- * Created by amit on 3/20/16.
- */
-/**
  * BACKBONE CODE
  */
 
@@ -48,68 +45,68 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
 /**
  * Creating a View to handle DYK form submission
  */
-var DykFormV = Backbone.View.extend({
-    el: '#job-update-form',
-
-    events: {
-        "submit": "submit"
-    },
-
-    initialize: function () {
-    },
-    submit: function (e) {
-        e.preventDefault();
-        debugger;
-        var self    = this;
-        //var source  =   $(e.currentTarget).find('textarea');
-        //var sourceText  =   source.val();
-        //source.val($.trim(sourceText));
-        var dykDetails = $(e.currentTarget).serializeObject();
-        this.model.save(dykDetails,{
-            success:function(user,response,options){
-                $('input[name=dyk-fact]').focus();
-                if(response.success === false){
-                    // Call the Modal and show the error
-                    var errorMsg = '';
-                    for(var x in response.error){
-                        errorMsg += response.error[x]+"<br/>";
-                    }
-                    var glyphiconForTitle = '<span class="glyphicon glyphicon-exclamation-sign" style="padding-right:5px"></span>';
-                    var title   =   'Please correct the error';
-                    bootbox.dialog({
-                        message: errorMsg,
-                        title: glyphiconForTitle+title,
-                        onEscape: function() {},
-                        buttons: {
-                            success: {
-                                label: "OK",
-                                className: "btn-primary",
-                                callback: function() {
-                                }
-                            }
-                        }
-                    });
-                    return false;
-                }
-                self.$el[0].reset();
-                self.model.set(self.model.defaults);
-                var newDyk  =   new dykM(response);
-
-                // Addition of model to collection is going to trigger
-                // an add event which does an append to collection view.
-                // Since we want to prepend the new model, we silence that
-                // event callback and perform our own prepend here
-
-                // ^ Oh,no we make use of flags and tackle that :)
-
-                newDykCollectionView.collection.add(newDyk,{newDykAdded:true});
-            },
-            error:function(model, error){
-                alert(error);
-            }
-        });
-    }
-});
+//var DykFormV = Backbone.View.extend({
+//    el: '#job-update-form',
+//
+//    events: {
+//        "submit": "submit"
+//    },
+//
+//    initialize: function () {
+//    },
+//    submit: function (e) {
+//        e.preventDefault();
+//        debugger;
+//        var self    = this;
+//        //var source  =   $(e.currentTarget).find('textarea');
+//        //var sourceText  =   source.val();
+//        //source.val($.trim(sourceText));
+//        var dykDetails = $(e.currentTarget).serializeObject();
+//        this.model.save(dykDetails,{
+//            success:function(user,response,options){
+//                $('input[name=dyk-fact]').focus();
+//                if(response.success === false){
+//                    // Call the Modal and show the error
+//                    var errorMsg = '';
+//                    for(var x in response.error){
+//                        errorMsg += response.error[x]+"<br/>";
+//                    }
+//                    var glyphiconForTitle = '<span class="glyphicon glyphicon-exclamation-sign" style="padding-right:5px"></span>';
+//                    var title   =   'Please correct the error';
+//                    bootbox.dialog({
+//                        message: errorMsg,
+//                        title: glyphiconForTitle+title,
+//                        onEscape: function() {},
+//                        buttons: {
+//                            success: {
+//                                label: "OK",
+//                                className: "btn-primary",
+//                                callback: function() {
+//                                }
+//                            }
+//                        }
+//                    });
+//                    return false;
+//                }
+//                self.$el[0].reset();
+//                self.model.set(self.model.defaults);
+//                var newDyk  =   new dykM(response);
+//
+//                // Addition of model to collection is going to trigger
+//                // an add event which does an append to collection view.
+//                // Since we want to prepend the new model, we silence that
+//                // event callback and perform our own prepend here
+//
+//                // ^ Oh,no we make use of flags and tackle that :)
+//
+//                newDykCollectionView.collection.add(newDyk,{newDykAdded:true});
+//            },
+//            error:function(model, error){
+//                alert(error);
+//            }
+//        });
+//    }
+//});
 
 /**
  * Creating a model Class to hold 1 Job
@@ -140,7 +137,7 @@ var dykM =   Backbone.Model.extend({
             model.readable_time =  friendly;
         }
 
-        console.log(model);
+        //console.log(model);
         return model;
     }
 });
@@ -300,35 +297,54 @@ var dykMV   =   Backbone.View.extend({
     updateJob: function(e){
         e.preventDefault();
         var self=this;
+
+        // Keep a copy of model data in case, update fails for some reason
         var company = self.model.get('company');
         var jobid   = self.model.get('jobid');
         var jobrole = self.model.get('role');
         var appliedon = self.model.get('applied_on');
         var joblink = self.model.get('joblink');
+        var application_status  = self.model.get('application_status');
+        var selectionDiv    = selectedChooser(self.model.get('application_status'));
         var glyphiconForTitle = '<span class="glyphicon glyphicon-pencil" style="padding-right:5px"></span>';
         bootbox.dialog({
                 title: glyphiconForTitle+"Update Job Application",
                 message: '<div class="row">  ' +
                 '<div class="col-md-12"> ' +
                 '<form class="form-horizontal" id="job-update-form" action="api/jobs/"> ' +
+                   '<div class="form-group"> ' +
+                        '<label class="col-md-4 control-label" for="jobstatus">Application status</label> ' +
+                        '<div class="col-md-6"> ' +
+                            '<select name="status" class="form-control" id="jobstatus" >'+
+                                selectionDiv+
+                            '</select>'+
+                        '</div> ' +
+                    '</div>'+
                     '<div class="form-group"> ' +
-                        '<label class="col-md-4 control-label" for="name">Job #</label> ' +
+                        '<label class="col-md-4 control-label" for="jobid">Job #</label> ' +
                         '<div class="col-md-6"> ' +
                             '<input id="jobid" name="jobid" type="text" value="'+jobid+'" class="form-control input-md">' +
                         '</div> ' +
                     '</div>'+
                     '<div class="form-group"> ' +
-                        '<label class="col-md-4 control-label" for="name">Company</label> ' +
+                        '<label class="col-md-4 control-label" for="company">Company</label> ' +
                         '<div class="col-md-6"> ' +
                             '<input id="company" name="company" type="text" value="'+company+'" class="form-control input-md">' +
                         '</div> ' +
                     '</div>'+
                     '<div class="form-group"> ' +
-                        '<label class="col-md-4 control-label" for="name">Role</label> ' +
+                        '<label class="col-md-4 control-label" for="role">Role</label> ' +
                         '<div class="col-md-6"> ' +
                             '<input id="role" name="role" type="text" value="'+jobrole+'" class="form-control input-md">' +
                         '</div> ' +
                     '</div>'+
+                    '<div class="form-group"> ' +
+                        '<label class="col-md-4 control-label" for="joblink">Link</label> ' +
+                        '<div class="col-md-6"> ' +
+                            '<input id="joblink" name="joblink" type="text" value="'+joblink+'" class="form-control input-md">' +
+                        '</div> ' +
+                    '</div>'+
+
                     //'<div class="form-group"> ' +
                     //    '<div class="col-sm-offset-2 col-sm-8">'+
                     //        '<button type="submit" class="btn btn-success btn-block">Update</button>'+
@@ -350,6 +366,8 @@ var dykMV   =   Backbone.View.extend({
                                         self.model.set('company',company);
                                         self.model.set('jobid',jobid);
                                         self.model.set('role',jobrole);
+                                        self.model.set('joblink',joblink);
+                                        self.model.set('application_status',application_status);
                                         var errorMsg = '';
                                         for(var x in response.error){
                                             errorMsg += response.error[x]+"<br/>";
@@ -365,7 +383,6 @@ var dykMV   =   Backbone.View.extend({
                                                     label: "OK",
                                                     className: "btn-success",
                                                     callback: function() {
-
                                                     }
                                                 }
                                             }
@@ -373,10 +390,14 @@ var dykMV   =   Backbone.View.extend({
                                         return false;
                                     }
                                     else{
-                                        console.log("Iam here");
+                                        //debugger;
+                                        // Either use the data from the form OR
+                                        // send a JSON response with all new data
                                         self.model.set('company',$('#company').val());
                                         self.model.set('jobid',$('#jobid').val());
                                         self.model.set('role',$('#role').val());
+                                        self.model.set('application_status',$('#jobstatus').val());
+                                        self.model.set('joblink',$('#joblink').val());
                                     }
                                 },
                                 error:function(model, error){
@@ -405,7 +426,26 @@ var dykMV   =   Backbone.View.extend({
     }
 });
 
+function selectedChooser(status){
+    var chooser = ['Applied','Phone Interview','Skype Interview','Onsite Interview','Rejected'];
+    for (i = 0; i < chooser.length; i++) {
+        if (chooser[i] == status){
+            break;
+        }
+    }
+    var optionBuilder = "";
+    for (j=0;j<chooser.length;j++){
+        if (j==i){
+            optionBuilder+='<option value="'+chooser[j]+'" selected>'+chooser[j]+'</option>';
+        }
+        else{
+            optionBuilder+='<option value="'+chooser[j]+'">'+chooser[j]+'</option>';
+        }
+    }
+    return optionBuilder;
+};
+
 var newDykMI    =   new dykM();
-var DykFormVI   =   new DykFormV({model:newDykMI});
+//var DykFormVI   =   new DykFormV({model:newDykMI});
 var newDykCollection    =   new dykC();
 var newDykCollectionView=   new dykCV({ collection: newDykCollection });
