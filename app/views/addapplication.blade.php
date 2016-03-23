@@ -147,7 +147,8 @@
                 todayHighlight: true,
                 orientation: "bottom auto",
                 todayBtn: "linked",
-                format: "yyyy-mm-dd"
+                format: "yyyy-mm-dd",
+                endDate: "0d"
             });
 
             /* http://stackoverflow.com/questions/18329789/bootstrap-datepicker-default-date */
