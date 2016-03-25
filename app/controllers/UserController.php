@@ -100,6 +100,10 @@ class UserController extends BaseController
         $messages = array(
             'firstname.required' => 'Please enter the First Name',
             'lastname.required' => 'Please enter the Last Name',
+            'username.required' => "Please pick a username",
+            'school.required' => "Please enter your School Name",
+            'email.required' => "Please enter your Email ID",
+            'gender.required' => "Please choose your gender"
         );
         $validator  = $this->user->validateUser(Input::all(), $rules, $messages);
 
