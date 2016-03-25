@@ -13,7 +13,7 @@
     {{--<link rel="icon" href="../../favicon.ico">--}}
     {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300')}}
 
-    <title>Welcome to keeptrack</title>
+    <title>Welcome to KeepTrack</title>
 
     <!-- Bootstrap core CSS -->
     {{ HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')}}
