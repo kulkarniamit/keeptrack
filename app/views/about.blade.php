@@ -95,12 +95,9 @@
                 <p class="lead">Yes, we have been there and done that. Managing excel sheets,
                     forgetting to update the applied jobs, trying to recall an employer when they call,
                     sharing job listings with friends, you name it and we have done it both for internships and full-time jobs.
-                    We are just a bunch of friends who saw the need for a central platform to store,
-                    share and keep track of our applied jobs and thus was born "KeepTrack".
-                    We are extremely happy with the overwhelming response for this simple v1.0 product from
-                    our juniors at NYU.</p>
+                    KeepTrack is meant to be a central platform to store, share and keep track of our applied jobs.
+                    </p>
                 <p class="lead">
-			KeepTrack has helped students create and track over 5000 applications so far.
                     We continue to hear your feedback and would want to make this a better platform.
 			Write to us at <a style="color:blue;" href="mail:support.keeptrack@yandex.com">KeepTrack Support</a>
                 </p>
@@ -111,7 +108,7 @@
                     <a href="https://twitter.com/intent/tweet?screen_name=keeptrackguys" class="twitter-mention-button" data-related="keeptrackguys">Tweet to @keeptrackguys</a>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     <p>Made with Keyboard and
-                        <span class="glyphicon glyphicon-heart" style="color: #B30000;"></span> in NYC
+                        <span class="glyphicon glyphicon-heart" style="color: #B30000;"></span> in Boston
                     </p>
                 </div>
             </div>

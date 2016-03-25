@@ -16,9 +16,10 @@ Route::get('/', array('before'=>'ifUserLoggedIn',function() {
 	return View::make('index');
 }));
 
-Route::get('about',	function(){
-	return View::make('about');
-});
+//Disabling it temporarily
+//Route::get('about',	function(){
+//	return View::make('about');
+//});
 
 Route::get('register',	array('before'=>'ifUserLoggedIn','uses'=>'UserController@showRegistrationPage'));
 Route::post('register',	array('before'=>'csrf','uses'=>'UserController@registerUser'));
