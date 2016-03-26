@@ -86,26 +86,26 @@
                 <div class="form-group">
                     <label for="inputtext0" class="col-sm-4 control-label">Username</label>
                     <div class="col-sm-8">
-                        <input type="text" name="username" value="{{Input::old('username')}}" class="form-control" id="inputtext0" data-validetta="required" placeholder="Pick a username" autofocus="autofocus">
+                        <input type="text" name="username" value="{{Input::old('username')}}" class="form-control" id="inputtext0" placeholder="Pick a username" autofocus="autofocus">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputtext1" class="col-sm-4 control-label">First Name</label>
                     <div class="col-sm-8">
-                        <input type="text" name="firstname" value="{{Input::old('firstname')}}" class="form-control" id="inputtext1" data-validetta="required" placeholder="First Name" autofocus="autofocus">
+                        <input type="text" name="firstname" value="{{Input::old('firstname')}}" class="form-control" id="inputtext1" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputtext2" class="col-sm-4 control-label">Last Name</label>
                     <div class="col-sm-8">
-                        <input type="text" name="lastname" value="{{Input::old('lastname')}}"  class="form-control" id="inputtext2"  data-validetta="required" placeholder="Last Name">
+                        <input type="text" name="lastname" value="{{Input::old('lastname')}}"  class="form-control" id="inputtext2"  placeholder="Last Name">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputtext3" class="col-sm-4 control-label">School</label>
                     <div class="col-sm-8">
-                        <input type="text" name="school" value="{{Input::old('school')}}"  class="form-control" id="inputtext3"  data-validetta="required" placeholder="Enter your school name">
+                        <input type="text" name="school" value="{{Input::old('school')}}"  class="form-control" id="inputtext3"  placeholder="Enter your school name">
                     </div>
                 </div>
 
@@ -118,7 +118,7 @@
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
                     <div class="col-sm-8">
-                        <input type="password" name="password" value="{{Input::old('password')}}" class="form-control" id="inputPassword3" data-validetta="required"  placeholder="Password">
+                        <input type="password" name="password" value="{{Input::old('password')}}" class="form-control" id="inputPassword3"  placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">

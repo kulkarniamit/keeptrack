@@ -89,26 +89,26 @@
                 <div class="form-group">
                     <label for="inputtext0" class="col-sm-4 control-label">Job #</label>
                     <div class="col-sm-8">
-                        <input type="text" name="jobid" value="{{Input::old('jobid')}}" class="form-control" id="inputtext0" data-validetta="required" placeholder="Enter the Job ID" autofocus="autofocus">
+                        <input type="text" name="jobid" value="{{Input::old('jobid')}}" class="form-control" id="inputtext0" placeholder="Enter the Job ID" autofocus="autofocus">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputtext1" class="col-sm-4 control-label">Company</label>
                     <div class="col-sm-8">
-                        <input type="text" name="company" value="{{Input::old('company')}}" class="form-control" id="inputtext1" data-validetta="required" placeholder="Enter the company name" autofocus="autofocus">
+                        <input type="text" name="company" value="{{Input::old('company')}}" class="form-control" id="inputtext1" placeholder="Enter the company name">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputtext2" class="col-sm-4 control-label">Job Role</label>
                     <div class="col-sm-8">
-                        <input type="text" name="role" value="{{Input::old('role')}}"  class="form-control" id="inputtext2"  data-validetta="required" placeholder="Job Role (For example: Graduate Java Intern)">
+                        <input type="text" name="role" value="{{Input::old('role')}}"  class="form-control" id="inputtext2"  placeholder="Job Role (For example: Graduate Java Intern)">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputtext3" class="col-sm-4 control-label">Job Link</label>
                     <div class="col-sm-8">
-                        <input type="text" name="joblink" value="{{Input::old('joblink')}}"  class="form-control" id="inputtext3"  data-validetta="required" placeholder="Enter the hyperlink to the job page (optional)">
+                        <input type="text" name="joblink" value="{{Input::old('joblink')}}"  class="form-control" id="inputtext3"  placeholder="Enter the hyperlink to the job page (optional)">
                     </div>
                 </div>
 
