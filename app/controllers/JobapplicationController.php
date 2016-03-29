@@ -102,7 +102,8 @@ class JobapplicationController extends \BaseController {
 //			'jobid.unique'      => 'Looks like you have already applied for this job!',
 			'company.required'  => 'Oops, you forgot you insert the Company name',
 			'role.required'     => 'Please enter the role you are applying for',
-			'joblink.url'		=> 'That does not look like a valid URL, please check again'
+			'joblink.url'		=> 'That does not look like a valid URL, please check again',
+			'appliedon.required'=> "You need a date to keep track :)"
 		);
 		$validator  = $this->user->validateUser(Input::all(), $rules, $messages);
 
