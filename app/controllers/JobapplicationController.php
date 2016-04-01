@@ -25,7 +25,7 @@ class JobapplicationController extends \BaseController {
          * Fetch the page_size and perform further actions
          */
 		$pageNumber             =   Input::has('page')?Input::get('page'):1;
-		$numberOfJobsToFetch    =   Input::has('page_size')?Input::get('page_size'):3;
+		$numberOfJobsToFetch    =   Input::has('page_size')?Input::get('page_size'):6;
 		$numberOfJobsToSkip     =   Input::has('page_size')?Input::get('page_size')*($pageNumber-1):0;
 //		return Response::json(Application::whereUserId(Auth::user()->id)->orderBy('created_at','desc')->get());
 

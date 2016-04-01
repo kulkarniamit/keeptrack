@@ -176,7 +176,7 @@ var dykCV   =   Backbone.View.extend({
         self.infiniScroll = new Backbone.InfiniScroll(self.collection,
             {
                 success: self.appendRender,
-                pageSize:   3,
+                pageSize:   6,
                 includePage:    true
             }
         );
