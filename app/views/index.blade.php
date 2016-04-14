@@ -86,7 +86,7 @@
 
             <div class="inner cover">
                 {{--<h1 class="cover-heading">Track your job applications</h1>--}}
-                <h1 class="cover-heading">Track</h1>
+                <h1 class="cover-heading">Track-AKASSH</h1>
 
                 <p class="lead">Maintain a list of your applied jobs, change status, track dates, tag friends for jobs and more...</p>
                 <p class="lead">We will continue to add features based on your requests</p>
