@@ -99,6 +99,12 @@
                 padding:2px 6px;
                 font-size:12px;
             }
+            .detaillabel{
+                padding-left: 0;
+            }
+            .col-xs-12.col-md-12.jobdetailbox{
+                padding-left: 7px;
+            }
             body{
                 overflow: hidden !important;
             }

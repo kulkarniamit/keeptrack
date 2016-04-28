@@ -11,11 +11,6 @@
         <div class="col-xs-12 col-md-12 jobcompany">
             <div class="col-md-8 col-xs-8 companytitle">
                 {{job.company}}
-<!--                {{#if job.joblink}}-->
-<!--                    <a href="{{job.joblink}}" target="_blank">{{job.company}}</a>-->
-<!--                {{else}}-->
-<!--                    {{job.company}}-->
-<!--                {{/if}}-->
             </div>
             <div class="col-md-4 col-xs-4 editdelete companyedit">
                     {{#if job.joblink}}
