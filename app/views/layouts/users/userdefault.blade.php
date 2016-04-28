@@ -105,8 +105,8 @@
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{URL::to('change-password')}}">Change Password</a></li>
+                                <li><a href="{{URL::to('jobs/export')}}">Export to Excel</a></li>
                                 <li class="divider"></li>
-    {{--                            <li><a href="{{URL::route('emp_password_change')}}">Change Password</a></li>--}}
                                 <li><a href="{{URL::to('logout')}}">Logout</a></li>
                             </ul>
                         </li>

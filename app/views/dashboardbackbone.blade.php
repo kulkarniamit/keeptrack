@@ -95,6 +95,10 @@
                 padding:2px 6px;
                 font-size:12px;
             }
+            .linkbutton{
+                padding:2px 6px;
+                font-size:12px;
+            }
             body{
                 overflow: hidden !important;
             }

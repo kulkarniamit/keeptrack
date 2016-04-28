@@ -150,6 +150,29 @@ class UserController extends BaseController
         }
 
     }
+
+    public function downloadJobsToExcel(){
+        Excel::create('jobslist', function($excel) {
+            $excel->setTitle('List of jobs');
+            $owner = Auth::user()->first_name;
+            $excel->setCreator($owner)->setCompany('NA');
+            $excel->setlastModifiedBy($owner );
+            $excel->setManager($owner);
+            // Call them separately
+            $excel->setDescription('List of jobs applied');
+            $jobs = Application::whereUserId(Auth::user()->id)
+                ->orderBy('created_at','desc')
+                ->get(['jobid','company','role','joblink','application_status','applied_on']);
+            $excel->sheet('MyJobsSheet', function($sheet) use($jobs) {
+//                $sheet->fromArray($jobs);
+                $sheet->fromArray($jobs,null,'A1',false,false);
+                $sheet->prependRow(1, array(
+                    'Job ID', 'Company','Role','Link','Application Status','Applied date'
+                ));
+            });
+
+        })->download('xlsx');
+    }
 }
 
 ?>

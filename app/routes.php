@@ -27,7 +27,7 @@ Route::get('login',		array('before'=>'ifUserLoggedIn','uses'=>'UserController@sh
 Route::post('login',	array('before'=>'csrf','uses'=>'UserController@validateUserCredentials'));
 /*	Routes requiring no login security filter	*/
 
-Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
+//Route::get('dashboard',	array('before'=>'isUserLoggedIn','uses'=>'UserController@showDashboard'));
 Route::get('dashboard',	array('before'=>'isUserLoggedIn',function(){
 	$numberOfApplications = \Application::whereUserId(Auth::user()->id)->count();
 	return View::make('dashboardbackbone')->with('numberOfApplications',$numberOfApplications);
@@ -37,6 +37,8 @@ Route::get('addapplication',array('before'=>'isUserLoggedIn','uses'=>'UserContro
 Route::post('addapplication',array('before'=>'csrf','uses'=>'UserController@addJobApplication'));
 Route::get('change-password',array('before'=>'isUserLoggedIn','uses'=>'UserController@showChangePasswordPage'));
 Route::post('pchandler',array('before'=>'csrf','uses'=>'UserController@changePassword'));
+
+Route::get('jobs/export',array('before'=>'isUserLoggedIn','uses'=>'UserController@downloadJobsToExcel'));
 
 // API ROUTES ==================================
 Route::group(array('prefix' => 'api'), function() {
