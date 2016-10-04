@@ -1,3 +1,7 @@
+## Introduction 
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/C29icvrmqvg/0.jpg)](http://www.youtube.com/watch?v=C29icvrmqvg)
+
 # Laravel 4.2 on OpenShift #
 [Laravel](http://laravel.com/) is a free, open source PHP web application framework, 
 designed for the development of model–view–controller (MVC) web applications.
